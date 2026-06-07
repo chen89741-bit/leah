@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leah 专属菜单</title>
+    <link rel="stylesheet" href="./shared/styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <div>
+          <p class="brand">Leah 专属菜单</p>
+          <h1 id="pageTitle">客人点餐</h1>
+          <p id="tableText" class="hint">当前桌号：3</p>
+        </div>
+        <div class="view-tabs">
+          <button id="customerBtn" type="button">客人点餐</button>
+          <button id="adminBtn" class="secondary" type="button">老板后台</button>
+        </div>
+      </header>
+
+      <section id="successBox" class="success hidden">
+        <h2>订单已提交</h2>
+        <p id="successText" class="hint"></p>
+      </section>
+
+      <section id="customerView" class="order-layout">
+        <div>
+          <h2>今日菜单</h2>
+          <div id="menuList" class="cards customer-menu"></div>
+        </div>
+
+        <aside class="panel sticky-cart">
+          <h2>当前订单</h2>
+          <div id="cartList" class="cart-list"></div>
+          <div class="summary">
+            <strong id="totalText">合计：¥0.00</strong>
+            <button id="submitBtn" type="button">提交订单</button>
+          </div>
+        </aside>
+      </section>
+
+      <section id="adminView" class="hidden">
+        <section id="adminLock" class="panel lock-panel">
+          <p class="brand">Owner Only</p>
+          <h2>老板入口</h2>
+          <p class="hint">请输入老板 PIN 查看订单。</p>
+          <input id="pinInput" type="password" placeholder="输入 PIN" />
+          <button id="unlockBtn" type="button">进入后台</button>
+          <p id="pinError" class="error hidden">PIN 不正确，请重试。</p>
+        </section>
+
+        <section id="adminContent" class="hidden">
+          <div class="row admin-head">
+            <h2>订单后台</h2>
+            <button id="refreshBtn" class="secondary" type="button">刷新订单</button>
+          </div>
+          <section id="ordersList" class="orders-list"></section>
+        </section>
+      </section>
+    </main>
+
+    <script src="./shared/data.js"></script>
+    <script src="./shared/store.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
